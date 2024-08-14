@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/bff.main.iml" filepath="$PROJECT_DIR$/.idea/modules/bff.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/user-managment-system.main.iml" filepath="$PROJECT_DIR$/.idea/modules/user-managment-system.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/user-profiles-app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/user-profiles-app.main.iml" />
     </modules>
   </component>
 </project>
