@@ -1,9 +1,7 @@
 package az.edu.turing.bff.service;
 
 import az.edu.turing.bff.client.ProfileClient;
-import az.edu.turing.bff.client.UserClient;
 import az.edu.turing.bff.dto.ProfileDto;
-import az.edu.turing.bff.dto.UserDto;
 import az.edu.turing.bff.enums.ProfileStatus;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.validator.internal.util.stereotypes.Lazy;
@@ -16,6 +14,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Service
 public class ProfileService {
+
     @Lazy
     private final ProfileClient profileClient;
 

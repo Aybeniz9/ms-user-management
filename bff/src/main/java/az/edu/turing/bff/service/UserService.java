@@ -13,6 +13,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Service
 public class UserService {
+
     @Lazy
     private final UserClient userClient;
 

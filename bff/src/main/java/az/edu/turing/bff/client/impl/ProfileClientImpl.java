@@ -14,6 +14,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Service
 public class ProfileClientImpl implements ProfileClient {
+
     private final ProfileService profileService;
 
     @Override
