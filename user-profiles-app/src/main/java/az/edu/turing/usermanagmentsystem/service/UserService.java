@@ -19,7 +19,6 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Service
 @Slf4j
-@Transactional
 public class UserService {
 
     private final UserMapper mapper;

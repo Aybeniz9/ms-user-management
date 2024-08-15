@@ -2,7 +2,14 @@ package az.edu.turing.usermanagmentsystem.dao.entity;
 
 import az.edu.turing.usermanagmentsystem.model.enums.GenderType;
 import az.edu.turing.usermanagmentsystem.model.enums.UserStatus;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Column;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.FetchType;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;

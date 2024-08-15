@@ -19,7 +19,6 @@ import java.util.UUID;
 @Slf4j
 @RequiredArgsConstructor
 @Service
-@Transactional
 public class ProfileService {
 
     private final ProfileMapper profileMapper;
