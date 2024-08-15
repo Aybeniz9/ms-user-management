@@ -9,6 +9,7 @@ import az.edu.turing.usermanagmentsystem.dao.repository.ProfileRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,17 +19,20 @@ import java.util.UUID;
 @Slf4j
 @RequiredArgsConstructor
 @Service
+@Transactional
 public class ProfileService {
 
     private final ProfileMapper profileMapper;
     private final ProfileRepository profileRepository;
 
+    @Transactional(readOnly = true)
     public List<ProfileDto> findAllProfiles(UUID userId) {
         List<ProfileEntity> profiles = profileRepository.findByUserId(userId);
         return profileMapper.entityListToDtoList(profiles);
 
     }
 
+    @Transactional
     public Optional<ProfileDto> createProfileByUserId(UUID id, ProfileDto profileDto) {
 
         ProfileEntity profileEntity = profileMapper.dtoToEntity(profileDto);
@@ -43,7 +47,7 @@ public class ProfileService {
         return Optional.ofNullable(profileMapper.entityToDto(savedProfile));
     }
 
-
+    @Transactional
     public Optional<ProfileDto> updateProfile(UUID userId, ProfileDto profileDto) {
         return profileRepository.findById(userId)
                 .map(existingProfile -> {
@@ -58,6 +62,7 @@ public class ProfileService {
                 .orElseThrow(() -> new UserNotFoundException("User with ID " + userId + " not found"));
     }
 
+    @Transactional
     public Optional<ProfileDto> updateProfileStatusById(UUID id, ProfileStatus status) {
         return profileRepository.findById(id)
                 .map(existingProfile -> {
@@ -72,6 +77,7 @@ public class ProfileService {
                 .orElseThrow(() -> new UserNotFoundException("User with ID " + id + " not found"));
     }
 
+    @Transactional(readOnly = true)
     public Optional<ProfileDto> findProfileByUserId(UUID id) {
         log.info("Find profile by id: " + id);
         return profileRepository.findById(id).map(profileMapper::entityToDto);
@@ -79,6 +85,7 @@ public class ProfileService {
 
     }
 
+    @Transactional
     public boolean deleteAllProfile() {
         List<ProfileEntity> profiles = profileRepository.findAll();
 
@@ -93,7 +100,7 @@ public class ProfileService {
 
     }
 
-
+    @Transactional
     public boolean deleteProfileById(UUID id) {
         return profileRepository.findById(id)
                 .map(profileEntity -> {
