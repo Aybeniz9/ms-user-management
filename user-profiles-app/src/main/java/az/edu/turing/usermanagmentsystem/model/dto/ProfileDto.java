@@ -41,6 +41,7 @@ public class ProfileDto {
     @Size(min = 2, max = 50)
     private String description;
 
+
     @Past
     private LocalDateTime lastSeenTime;
 }
