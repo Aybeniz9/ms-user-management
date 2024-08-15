@@ -3,9 +3,9 @@ package az.edu.turing.usermanagmentsystem.service;
 import az.edu.turing.usermanagmentsystem.exception.UserNotFoundException;
 import az.edu.turing.usermanagmentsystem.mapper.UserMapper;
 import az.edu.turing.usermanagmentsystem.model.dto.UserDto;
-import az.edu.turing.usermanagmentsystem.model.entity.UserEntity;
+import az.edu.turing.usermanagmentsystem.dao.entity.UserEntity;
 import az.edu.turing.usermanagmentsystem.model.enums.UserStatus;
-import az.edu.turing.usermanagmentsystem.repository.UserRepository;
+import az.edu.turing.usermanagmentsystem.dao.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -14,8 +14,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-
-import static az.edu.turing.usermanagmentsystem.model.enums.UserStatus.DELETED;
 
 @RequiredArgsConstructor
 @Service

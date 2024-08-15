@@ -1,6 +1,6 @@
-package az.edu.turing.usermanagmentsystem.repository;
+package az.edu.turing.usermanagmentsystem.dao.repository;
 
-import az.edu.turing.usermanagmentsystem.model.entity.ProfileEntity;
+import az.edu.turing.usermanagmentsystem.dao.entity.ProfileEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

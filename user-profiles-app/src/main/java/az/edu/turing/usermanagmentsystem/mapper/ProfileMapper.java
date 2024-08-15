@@ -1,7 +1,7 @@
 package az.edu.turing.usermanagmentsystem.mapper;
 
 import az.edu.turing.usermanagmentsystem.model.dto.ProfileDto;
-import az.edu.turing.usermanagmentsystem.model.entity.ProfileEntity;
+import az.edu.turing.usermanagmentsystem.dao.entity.ProfileEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

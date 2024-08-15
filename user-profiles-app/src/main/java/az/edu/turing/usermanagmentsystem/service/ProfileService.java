@@ -3,13 +3,10 @@ package az.edu.turing.usermanagmentsystem.service;
 import az.edu.turing.usermanagmentsystem.exception.UserNotFoundException;
 import az.edu.turing.usermanagmentsystem.mapper.ProfileMapper;
 import az.edu.turing.usermanagmentsystem.model.dto.ProfileDto;
-import az.edu.turing.usermanagmentsystem.model.entity.ProfileEntity;
-import az.edu.turing.usermanagmentsystem.model.entity.UserEntity;
+import az.edu.turing.usermanagmentsystem.dao.entity.ProfileEntity;
 import az.edu.turing.usermanagmentsystem.model.enums.ProfileStatus;
-import az.edu.turing.usermanagmentsystem.model.enums.UserStatus;
-import az.edu.turing.usermanagmentsystem.repository.ProfileRepository;
+import az.edu.turing.usermanagmentsystem.dao.repository.ProfileRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.apachecommons.CommonsLog;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -94,7 +91,7 @@ public class ProfileService {
 
         return true;
 
-    }//todo
+    }
 
 
     public boolean deleteProfileById(UUID id) {
@@ -113,5 +110,5 @@ public class ProfileService {
                     return false;
                 });
     }
-}//todo
+}
 
