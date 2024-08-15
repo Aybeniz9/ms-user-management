@@ -6,6 +6,7 @@ import az.edu.turing.usermanagmentsystem.model.dto.UserDto;
 import az.edu.turing.usermanagmentsystem.dao.entity.UserEntity;
 import az.edu.turing.usermanagmentsystem.model.enums.UserStatus;
 import az.edu.turing.usermanagmentsystem.dao.repository.UserRepository;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -18,11 +19,13 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Service
 @Slf4j
+@Transactional
 public class UserService {
 
     private final UserMapper mapper;
     private final UserRepository userRepository;
 
+    @Transactional(readOnly = true)
     public List<UserDto> findAll() {
         List<UserEntity> all = userRepository.findAll();
         List<UserDto> userDto = mapper.entityListToDtoList(all);
@@ -32,6 +35,7 @@ public class UserService {
         return userDto;
     }
 
+    @Transactional
     public UserDto create(UserDto userDto) {
 
         UserEntity userEntity = mapper.dtoToEntity(userDto);
@@ -44,10 +48,12 @@ public class UserService {
         return mapper.entityToDto(savedEntity);
     }
 
+    @Transactional(readOnly = true)
     public Optional<UserDto> userById(UUID id) {
         return userRepository.findById(id).map(mapper::entityToDto);
     }
 
+    @Transactional
     public Optional<UserDto> update(UUID id, UserDto userDto) {
         UserEntity userEntity = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException("user not found"));
 
@@ -65,6 +71,7 @@ public class UserService {
         return Optional.of(updatedUserDto);
     }
 
+    @Transactional
     public boolean deleteAll() {
         List<UserEntity> users = userRepository.findAll();
 
@@ -78,6 +85,7 @@ public class UserService {
         return true;
     }
 
+    @Transactional
     public boolean deleteById(UUID id) {
         return userRepository.findById(id)
                 .map(userEntity -> {
@@ -95,8 +103,8 @@ public class UserService {
                 });
     }
 
-
-    public Optional<UserDto> updateEmail(UUID id , String email) {
+    @Transactional
+    public Optional<UserDto> updateEmail(UUID id, String email) {
         return userRepository.findById(id)
                 .map(userEntity -> {
                     userEntity.setEmail(email);
