@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+  db_postgres:
+    container_name: db
+    image: postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  user-management:
+    container_name: user-management
+    image: user-management
+    ports:
+      - "8085:8085"
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db_postgres
+    tty: true
+    stdin_open: true
