@@ -16,6 +16,7 @@ services:
     image: user-management
     ports:
       - "8085:8085"
+      -
     restart: unless-stopped
     build:
       context: .
