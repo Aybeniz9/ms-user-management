@@ -1,6 +1,6 @@
 spring:
   application:
-    name: user-managment-system
+    name: user-management
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
